@@ -1,0 +1,86 @@
+---
+import Breadcrumbs from '@/components/breadcrumbs.astro'
+import PageHead from '@/components/page-head.astro'
+import Layout from '@/layouts/layout.astro'
+---
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="About" />
+  <Breadcrumbs items={[{ label: 'About', icon: 'lucide:info' }]} />
+  <section class="relative">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      {[
+        {top:'5%', left:'2%', size:'60px', rot:'15deg', op:'0.07'},
+        {top:'15%', left:'88%', size:'50px', rot:'-20deg', op:'0.06'},
+        {top:'35%', left:'5%', size:'45px', rot:'35deg', op:'0.05'},
+        {top:'50%', left:'92%', size:'55px', rot:'-10deg', op:'0.07'},
+        {top:'65%', left:'10%', size:'50px', rot:'25deg', op:'0.06'},
+        {top:'80%', left:'85%', size:'45px', rot:'-30deg', op:'0.05'},
+        {top:'90%', left:'40%', size:'55px', rot:'10deg', op:'0.06'},
+      ].map((s) => (
+        <img
+          src="/sun.png"
+          alt=""
+          style={`position:absolute; top:${s.top}; left:${s.left}; width:${s.size}; height:${s.size}; transform:rotate(${s.rot}); opacity:${s.op};`}
+        />
+      ))}
+    </div>
+    <div class="prose max-w-none relative z-10">
+      <p>
+        Hey, friend. If you're reading this, it means I'm no longer alive.... no, no, no... that's not what this is, wrong intro. Let me try again.
+      </p>
+
+      <div class="my-4 p-4" style="background: #0d0d0d;">
+        <div class="flex items-center gap-2 mb-2">
+          <span style="color: #DE700D; font-size: 1.2rem;">♥</span>
+          <span style="color: #DE700D; font-size: 0.75rem; letter-spacing: 2px;">ECG</span>
+          <span style="color: #DE700D; font-size: 1.2rem;">♥</span>
+        </div>
+        <svg viewBox="0 0 700 80" xmlns="http://www.w3.org/2000/svg" class="w-full">
+          <polyline
+            points="
+              0,40 200,40
+              210,40 215,15 220,65 225,40
+              235,40 240,5 245,75 250,30 255,55 260,40
+              270,40 275,20 280,60 285,40
+              295,40 305,15 310,65 315,40
+              325,40 330,5 335,75 340,30 345,55 350,40
+              360,40 365,20 370,60 375,40
+              385,40 390,15 395,65 400,40
+              410,40 415,5 420,75 425,30 430,55 435,40
+              445,40 450,20 455,60 460,40
+              470,40 475,15 480,65 485,40
+              495,40 500,5 505,75 510,30 515,55 520,40
+              530,40 535,20 540,60 545,40
+              555,40 560,15 565,65 570,40
+              580,40 585,5 590,75 595,30 600,55 605,40
+              615,40 620,20 625,60 630,40
+              640,40 645,15 650,65 655,40
+              665,40 670,5 675,75 680,30 685,55 690,40
+              700,20"
+            fill="none"
+            stroke="#DE700D"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <p>
+        Hey, friend. If you're reading this, it means you know me, or you're a really good stalker. Because I'm not that popular yet.
+      </p>
+      <p>
+        The main reason I created this site is to get my thoughts in order. Yes, I have an ADHD brain, and most of the time I either don't do the things I'm supposed to do, leave them to the last minute, or start them for a while and then lose focus and leave them unfinished. So I end up doing many different things but never actually completing any of them.
+      </p>
+      <p>
+        I built this site to bring some order to this chaotic mind and to create a sense of accountability. I've finally found what I want to do, who I want to become, and the field I want to grow in. It's time to take action. Turns out, I want to be an embedded engineer. I love this field and I think it was made for me, because I carry both a deeply analytical and a creative soul, and embedded systems feed both sides of me.
+      </p>
+      <p>
+        From now on, I'll be sharing my learning roadmap, my projects, things I discover along the way, and more, right here on this site. That way I'll be more accountable, and I'll have a little corner of the internet to look back on someday.
+      </p>
+      <p>
+        That said, since I'm someone with a wide range of interests, this blog won't be limited to embedded systems. You'll also find posts on science, philosophy, music, art, esotericism, and other strange topics that fascinate me. If any of that sounds interesting to you, stick around.
+      </p>
+    </div>
+  </section>
+</Layout>

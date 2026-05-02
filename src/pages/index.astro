@@ -1,0 +1,98 @@
+---
+import BlogCard from '@/components/blog-card.astro'
+import Link from '@/components/link.astro'
+import PageHead from '@/components/page-head.astro'
+import { buttonVariants } from '@/components/ui/button'
+import { SITE } from '@/consts'
+import Layout from '@/layouts/layout.astro'
+import { getRecentPosts } from '@/lib/data-utils'
+const blog = await getRecentPosts(SITE.featuredPostCount)
+---
+<Layout class="max-w-6xl">
+  <PageHead slot="head" title="Home" />
+  <div class="grid grid-cols-3 gap-4 p-4">
+
+  <!-- teqdim-->
+<div class="col-span-2 rounded-xl border bg-card p-8 flex flex-col justify-center gap-3">
+  <h1 class="text-4xl font-bold">Hi, I'm Arifa...</h1>
+  <p class="text-muted-foreground text-lg">
+    Founder of <a href="http://shams.industries" style="color: #F5A623;" class="font-medium">shams.industries</a> in the next 3000 days.
+  </p>
+  <Link href="/blog" class="text-muted-foreground text-sm hover:text-foreground transition-colors">
+  Proof that Arifa Stark has a heart. <span style="color: #F5A623; font-weight: 900; font-size: 1.4rem; letter-spacing: 2px;">⟶</span>
+</Link>
+  <div class="flex gap-3 mt-2">
+    <Link href="https://github.com/arifastark" external class={buttonVariants({ variant: 'default' })}>
+      GitHub
+    </Link>
+    <Link href="mailto:arifa.humbatova@tutamail.com" class={buttonVariants({ variant: 'outline' })}>
+      Contact
+    </Link>
+  </div>
+</div>
+    <!-- Mikasa -->
+    <div class="col-span-1 row-span-2 rounded-xl border overflow-hidden relative min-h-64">
+      <img src="/mks.jpeg" alt="mikasa" class="absolute inset-0 w-full h-full object-cover scale-90" />
+    </div>
+
+    <!-- GitHub -->
+    <div class="col-span-2 rounded-xl border bg-card p-4 flex flex-col gap-2">
+      <h2 class="text-xl font-medium">GitHub Activity</h2>
+      <img
+        src="https://github-readme-activity-graph.vercel.app/graph?username=arifastark&bg_color=0d0d0d&color=DE700D&line=DE700D&point=ffffff&area=true&hide_border=true&days=90"
+        class="rounded w-full"
+      />
+    </div>
+
+    <!-- Spotify -->
+    <div class="col-span-1 rounded-xl border overflow-hidden relative p-4 flex flex-col items-center justify-center" style="background: #0d0d0d;">
+      <div class="absolute inset-0 opacity-25">
+        {[
+          {top:'5%', left:'8%', size:'28px', rot:'15deg'},
+          {top:'10%', left:'55%', size:'32px', rot:'-20deg'},
+          {top:'3%', left:'80%', size:'26px', rot:'35deg'},
+          {top:'25%', left:'20%', size:'30px', rot:'-10deg'},
+          {top:'20%', left:'70%', size:'34px', rot:'25deg'},
+          {top:'40%', left:'5%', size:'28px', rot:'-30deg'},
+          {top:'45%', left:'40%', size:'32px', rot:'10deg'},
+          {top:'38%', left:'85%', size:'26px', rot:'-15deg'},
+          {top:'60%', left:'15%', size:'30px', rot:'20deg'},
+          {top:'65%', left:'60%', size:'34px', rot:'-25deg'},
+          {top:'58%', left:'90%', size:'28px', rot:'5deg'},
+          {top:'78%', left:'30%', size:'32px', rot:'-35deg'},
+          {top:'80%', left:'75%', size:'26px', rot:'30deg'},
+          {top:'90%', left:'5%', size:'30px', rot:'-10deg'},
+          {top:'92%', left:'50%', size:'34px', rot:'15deg'},
+          {top:'85%', left:'92%', size:'28px', rot:'-20deg'},
+        ].map((s) => (
+          <svg viewBox="0 0 24 24" fill="#DE700D" style={`position:absolute; top:${s.top}; left:${s.left}; width:${s.size}; height:${s.size}; transform:rotate(${s.rot});`}>
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+        ))}
+      </div>
+      <div class="relative z-10 w-full">
+        <a href="https://spotify-github-profile.kittinanx.com/api/view?uid=31gxxcfzvf3ophqehuyjjstm6pba&redirect=true">
+          <img
+            src="https://spotify-github-profile.kittinanx.com/api/view?uid=31gxxcfzvf3ophqehuyjjstm6pba&cover_image=true&theme=spotify-embed&show_offline=true&background_color=1a1a1a&interchange=false&profanity=true&bar_color=de700d&bar_color_cover=false&mode=dark"
+            alt="Spotify"
+            class="w-full rounded"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Son yazılar -->
+    <div class="col-span-2 rounded-xl border bg-card p-6 flex flex-col gap-3">
+      <h2 class="text-xl font-medium">Latest posts</h2>
+      <ul class="flex flex-col gap-y-3">
+        {blog.map((post) => (
+          <li><BlogCard entry={post} /></li>
+        ))}
+      </ul>
+      <Link href="/blog" class={buttonVariants({ variant: 'ghost' }) + ' group w-fit'}>
+        See all posts <span class="ml-1.5 transition-transform group-hover:translate-x-1">&rarr;</span>
+      </Link>
+    </div>
+
+  </div>
+</Layout>
